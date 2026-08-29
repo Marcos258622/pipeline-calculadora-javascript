@@ -20,6 +20,22 @@ jobs:
       - name: Executar Teste de Soma
         run: node soma.js
  
+
+  test_sub:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Baixar Código do Repositório
+        uses: actions/checkout@v5
+ 
+      - name: Configurar Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+ 
+      - name: Executar Teste de Subtração
+        run: node sub.js
+ 
   test_div:
     runs-on: ubuntu-latest
  
@@ -36,7 +52,7 @@ jobs:
         run: node div.js
  
   deploy:
-    needs: [test_soma, test_div]
+    needs: [test_soma, test_sub, test_div]
     runs-on: ubuntu-latest
  
     steps:

@@ -1,8 +1,8 @@
-function sub(a, b) {
-    return a - b;
+function div(a, b) {
+    return a / b;
 }
  
-const resultado = sub(5, 3);
+const resultado = div(6, 3);
  
 if (resultado === 2) {
     console.log("Teste passou!");
