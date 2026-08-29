@@ -50,6 +50,21 @@ jobs:
  
       - name: Executar Teste de Divisão
         run: node div.js
+
+  test_elevar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar Código do Repositório
+        uses: actions/checkout@v5
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Executar Teste de Elevar Número
+        run: node elevar.js
   test_raiz:
     runs-on: ubuntu-latest
 
@@ -68,7 +83,7 @@ jobs:
  
 
   deploy:
-    needs: [test_soma, test_sub, test_div, test_raiz]
+    needs: [test_soma, test_sub, test_div, test_raiz, test_elevar]
     runs-on: ubuntu-latest
  
     steps:
