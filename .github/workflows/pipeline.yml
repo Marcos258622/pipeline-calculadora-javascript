@@ -50,13 +50,29 @@ jobs:
  
       - name: Executar Teste de Divisão
         run: node div.js
+  test_raiz:
+    runs-on: ubuntu-latest
+
+    
+    steps:
+      - name: Baixar Código do Repositório
+        uses: actions/checkout@v5
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Executar Teste de Raiz Quadrada
+        run: node raiz.js
  
+
   deploy:
-    needs: [test_soma, test_sub, test_div]
+    needs: [test_soma, test_sub, test_div, test_raiz]
     runs-on: ubuntu-latest
  
     steps:
       - name: Deploy
         run: echo "Deploy realizado"
- 
- 
+
+     
