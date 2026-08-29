@@ -1,0 +1,59 @@
+name: Pipeline
+ 
+on:
+  push:
+    branches: [main]
+ 
+jobs:
+  test_soma:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Baixar Código do Repositório
+        uses: actions/checkout@v5
+ 
+      - name: Configurar Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+ 
+      - name: Executar Teste de Soma
+        run: node soma.js
+ 
+  test_div:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Baixar Código do Repositório
+        uses: actions/checkout@v5
+ 
+      - name: Configurar Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+ 
+      - name: Executar Teste de Divisão
+        run: node div.js
+ 
+  deploy:
+    needs: [test_soma, test_div]
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Deploy
+        run: echo "Deploy realizado"
+ 
+ 
+function soma(a, b) {
+    return a + b;
+}
+ 
+const resultado = soma(5, 3);
+ 
+if (resultado === 8) {
+    console.log("Teste passou!");
+} else {
+    console.error("Teste falhou!");
+    process.exit(1);
+}
+ 
