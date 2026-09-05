@@ -23,6 +23,7 @@ jobs:
  
       - name: Executar Teste de Soma
         run: node soma.js
+ 
 
 
   test_sub:
@@ -43,8 +44,7 @@ jobs:
  
       - name: Executar Teste de Subtração
         run: node sub.js
-
-
+ 
   test_div:
     strategy:
       matrix:
@@ -63,7 +63,6 @@ jobs:
  
       - name: Executar Teste de Divisão
         run: node div.js
-
 
   test_elevar:
     strategy:
@@ -84,13 +83,13 @@ jobs:
       - name: Executar Teste de Elevar Número
         run: node elevar.js
 
-
   test_raiz:
     strategy:
       matrix:
         node-version: ['20', '21', '22']
     runs-on: ubuntu-latest
 
+    
     steps:
       - name: Baixar Código do Repositório
         uses: actions/checkout@v5
@@ -103,7 +102,7 @@ jobs:
 
       - name: Executar Teste de Raiz Quadrada
         run: node raiz.js
-
+ 
 
   deploy:
     needs: [test_soma, test_sub, test_div, test_raiz, test_elevar]
