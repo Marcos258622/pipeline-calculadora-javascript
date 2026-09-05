@@ -1,0 +1,13 @@
+{
+  "name": "pipeline-calculadora-javascript",
+  "version": "1.0.0",
+  "description": "Calculadora em JavaScript",
+  "main": "soma.js",
+  "scripts": {
+    "soma": "node soma.js",
+    "sub": "node sub.js",
+    "div": "node div.js",
+    "elevar": "node elevar.js",
+    "raiz": "node raiz.js"
+  }
+}
