@@ -6,7 +6,10 @@ on:
  
 jobs:
   test_soma:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
  
     steps:
       - name: Baixar Código do Repositório
@@ -21,8 +24,12 @@ jobs:
         run: node soma.js
  
 
+
   test_sub:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
  
     steps:
       - name: Baixar Código do Repositório
@@ -37,7 +44,10 @@ jobs:
         run: node sub.js
  
   test_div:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
  
     steps:
       - name: Baixar Código do Repositório
@@ -52,7 +62,10 @@ jobs:
         run: node div.js
 
   test_elevar:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Baixar Código do Repositório
@@ -65,8 +78,12 @@ jobs:
 
       - name: Executar Teste de Elevar Número
         run: node elevar.js
+
   test_raiz:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
 
     
     steps:
@@ -89,5 +106,3 @@ jobs:
     steps:
       - name: Deploy
         run: echo "Deploy realizado"
-
-     
